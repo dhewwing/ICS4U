@@ -22,15 +22,15 @@ public class GPSHomeworkQuestion {
 	
 	for (int i = 0; i<numPoints; i++)
 	{
-		System.out.println("Enter point x" + i + ": ");
+		System.out.println("Enter the x co-ordinate for point " + i + ": ");
 		points[i][0] = scanner.nextDouble();
-		System.out.println("Enter point y" + i + ": ");
+		System.out.println("Enter the y co-ordinate for point  " + i + ": ");
 		points[i][1] = scanner.nextDouble();
 	}
 	
 	for (int i = 0; i < numPoints; i++)
 	{
-		for (int j = i; i < numPoints-1; j++)
+		for (int j = i; j < numPoints-1; j++)
 		{
 		double dx = points[i][0] - points[j+1][0];
 		double dy = points[i][1] - points[j+1][j];
