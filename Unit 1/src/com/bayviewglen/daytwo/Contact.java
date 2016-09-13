@@ -1,7 +1,7 @@
 package com.bayviewglen.daytwo;
 
 public class Contact {
-	
+	// hi
 	private String lName;
 	private String iName;
 	private String phone;
