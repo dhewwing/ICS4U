@@ -27,13 +27,12 @@ public class GPSHomeworkQuestion {
 		System.out.println("Enter the y co-ordinate for point  " + i + ": ");
 		points[i][1] = scanner.nextDouble();
 	}
-	
 	for (int i = 0; i < numPoints; i++)
 	{
 		for (int j = i; j < numPoints-1; j++)
 		{
 		double dx = points[i][0] - points[j+1][0];
-		double dy = points[i][1] - points[j+1][j];
+		double dy = points[i][1] - points[j+1][1];
 		distance = Math.sqrt(dx * dx + dy * dy);
 			
 		// sets the first iteration to the closest points
