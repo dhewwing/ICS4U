@@ -14,4 +14,11 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>src/com/bayviewglen/dayfour/RoughAddressBook.txt</name>
+			<type>1</type>
+			<location>C:/Users/dhewwing/Desktop/COMSCI/RoughCode(Bad)/RoughAddressBook.txt</location>
+		</link>
+	</linkedResources>
 </projectDescription>

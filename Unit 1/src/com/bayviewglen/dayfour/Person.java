@@ -4,12 +4,14 @@ public class Person {
 	
 	private String lName;
 	private String iName;
+	private String phone;
 	
 	//complete the class by adding appropriate constructers, get ,set methods, etc.
 	
-	public Person(String firstName,String lastName) {
+	public Person(String firstName,String lastName, String phoneNum) {
 		iName = firstName;
 		lName = lastName;
+		phone = phoneNum;
 	}
 	
 	public String getIName(String iName){
@@ -34,6 +36,18 @@ public class Person {
 
 	public void setlName(String lName) {
 		this.lName = lName;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+	public String toString(){
+		String  x = iName + " " + lName + " " + phone;
+		return x;
 	}
 
 }
