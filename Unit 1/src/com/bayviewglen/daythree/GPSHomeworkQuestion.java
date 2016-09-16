@@ -31,8 +31,8 @@ public class GPSHomeworkQuestion {
 	{
 		for (int j = i; j < numPoints-1; j++)
 		{
-		double dx = points[i][0] - points[j+1][0];
-		double dy = points[i][1] - points[j+1][1];
+		double dx = points[i][0] - points[j+1][0]; // delta x
+		double dy = points[i][1] - points[j+1][1]; // delta y
 		distance = Math.sqrt(dx * dx + dy * dy);
 			
 		// sets the first iteration to the closest points
