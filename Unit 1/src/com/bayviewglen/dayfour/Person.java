@@ -1,6 +1,6 @@
 package com.bayviewglen.dayfour;
 
-public class Person {
+public class Person  {
 	
 	private String lName;
 	private String iName;
@@ -14,7 +14,7 @@ public class Person {
 		phone = phoneNum;
 	}
 	
-	public String getIName(String iName){
+	public String getIName(){
 		return iName;
 	}
 	
@@ -26,11 +26,11 @@ public class Person {
 		this.lName = lName;
 	}
 	
-	public String getLName(String lName){
+	public String getLName(){
 		return lName;
 	}
 	
-	public String getlName(String lName) {
+	public String getlName() {
 		return lName;
 	}
 
