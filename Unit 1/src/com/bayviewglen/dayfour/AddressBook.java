@@ -72,7 +72,7 @@ public class AddressBook {
 	}
 
 	private void displayAll() {
-		System.out.println("Here are all the people:");
+		System.out.println("\nHere are all the people:");
 		for (String x : addressBook.keySet()) {
 			if (x == null) {
 				System.out.println("Directory is empty");
