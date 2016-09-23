@@ -16,6 +16,9 @@ public class NotesOnStack {
 		// pop is removing
 		// peek look at top
 		// empty see if empty
+		String x = "hi guys";
+		System.out.println(x.indexOf("x"));
 	}
-
 }
+
+
