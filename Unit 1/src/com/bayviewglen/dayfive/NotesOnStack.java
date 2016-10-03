@@ -16,6 +16,14 @@ public class NotesOnStack {
 		// pop is removing
 		// peek look at top
 		// empty see if empty
+		// size returns int.
+		
+		//BACKTRACKING ALGORITHM
+		//Queen Class
+		//with row col
+		// Stack<Queen> board.
+		
+		// boolean conflict(Queen, Stack<Queen>)
 		String x = "hi guys";
 		System.out.println(x.indexOf("x"));
 	}
