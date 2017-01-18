@@ -8,7 +8,7 @@ public class DynamicProgramming {
 	
 		int n = 100;
 		solutions = new long[n+1];
-		
+	//iuuyiuyi	
 		for (int i = 0; i <= n; i++){
 			solutions[i] = -1;
 		}
