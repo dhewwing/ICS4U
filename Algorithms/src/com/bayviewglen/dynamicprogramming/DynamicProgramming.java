@@ -1,5 +1,5 @@
 package com.bayviewglen.dynamicprogramming;
-
+//test
 public class DynamicProgramming {
 
 	static long[] solutions;
