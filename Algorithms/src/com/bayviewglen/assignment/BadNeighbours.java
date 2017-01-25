@@ -6,6 +6,17 @@ public class BadNeighbours {
 	
 	public static int max(int[] arr){ //finds max.
 		
+		/* This method finds the max in arrays created by the solution method.
+		 * There are four cases you must test four. One person, two persons,
+		 * 3 persons, 4 or more persons. I test 1,2 and 3 persons because 
+		 * it is the only 3 cases that allows for direct cases. Meaning,
+		 * that you can compare two things, and compare added two things 
+		 * the lonely element.  Beyond this, I made a temporary array 
+		 * where you store the elements, add them with the donations array
+		 * then stores the newest solution in the temporary array. At the
+		 * end of the loop the last index will be the max. 
+		 */
+		
 		// one person
 		if(arr.length == 1){
 			return arr[0];
@@ -35,6 +46,14 @@ public class BadNeighbours {
 	
 	public static int solution(int[] arr){
 		
+		/* Since the last index and the first index are neighbors 
+		 * they cannot be added. Therefore, the best solution is
+		 * to have two array, one with the first index --> second-last
+		 * index and another with second index --> last index. This 
+		 * will create two arrays that will be able to test all 
+		 * possible then will find the max value using "max" method. 
+		 */		
+		
 		int[] arr1 = new int[arr.length];
 		int[] arr2 = new int[arr.length];
 		int length = donations.length;
@@ -48,6 +67,13 @@ public class BadNeighbours {
 				arr1[i] = donations[i];
 				arr2[i] = donations[i];
 			}
+			}
+		for (int k = 0; k < arr1.length; k++){
+			System.out.println(" array 1: " +arr1[k]);
+		}
+		System.out.println();
+		for (int j = 0; j < arr2.length; j++){
+			System.out.println(" array 2: " + arr2[j]);
 		}
 		return Math.max(max(arr1), max(arr2));
 		
