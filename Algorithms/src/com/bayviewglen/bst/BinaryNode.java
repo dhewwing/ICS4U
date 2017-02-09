@@ -7,7 +7,7 @@ public class BinaryNode {
 	private Comparable element;
 	
 	
-	public BinaryNode(Integer el){
+	public BinaryNode(Comparable el){
 		element = el;
 	}
 	
@@ -36,8 +36,8 @@ public class BinaryNode {
 	}
 
 
-	public void setElement(Comparable element) {
-		this.element = element;
+	public void setElement(Comparable el) {
+		this.element = el;
 	}
 
 

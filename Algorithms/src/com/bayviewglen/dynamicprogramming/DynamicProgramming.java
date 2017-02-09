@@ -6,7 +6,7 @@ public class DynamicProgramming {
 	
 	public static void main (String[] args){
 	
-		int n = 100;
+		int n = 6;
 		solutions = new long[n+1];
 	//iuuyiuyi	
 		for (int i = 0; i <= n; i++){
@@ -26,6 +26,7 @@ public class DynamicProgramming {
 			return 1;
 		}else{
 			solutions[n] = solveFib(n-1) + solveFib(n-2);
+			System.out.println(solutions[n]);
 			return solutions[n];
 		}
 	}
