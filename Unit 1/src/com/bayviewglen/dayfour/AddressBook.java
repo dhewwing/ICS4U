@@ -16,19 +16,6 @@ public class AddressBook {
 	Scanner scanner = new Scanner(System.in);
 	HashMap<String, Person> addressBook = new HashMap<String, Person>();
 
-	// bug when gathering info: runs too fast for the user to input.
-	// ^ FIXED: changed by: scanner.nextLine(); --> String x =
-	// scanner.nextLine();
-
-	// bug when adding a contact, not adding to hashmap (checked in debug) (ask
-	// deslauriers for help)
-	// can't use person object for a key.
-	// ^ FIXED now use a last name as a key, and a person object as a value.
-
-	// bug when printing the person object. "The contact information is:
-	// com.bayviewglen.dayfour.Person@33909752"
-	// ^ FIXED by creating toString() method in my Person class.
-
 	public void prompt() {
 
 		// option select
