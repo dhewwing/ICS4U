@@ -1,37 +1,40 @@
 package com.bayviewglen.contactlist;
 
-public class Contact {
+public class Contact implements Comparable {
 
+	private String name;
 	private String phone;
-	private String first;
-	private String last;
 	
-	public Contact(String p, String f, String l){
-		
-		phone = p;
-		setFirst(f);
-		last = l;
-		
-		
+	public Contact(String name){
+		this(name, null);
 	}
-
-	public String getPhone() {
-		return phone;
-	}
-
-	public void setPhone(String phone) {
+	public Contact(String name, String phone){
+		this.name = name;
 		this.phone = phone;
 	}
 
-	public String getFirst() {
-		return first;
-	}
-
-	public void setFirst(String first) {
-		this.first = first;
+	public void setPhone(String newphone){
+		phone = newphone;
 	}
 	
+	public String getPhone(){
+		return phone;
+	}
 	
+	public void setName (String newname){
+		name = newname;
+	}
 	
+	public String getName(){
+		return name;
+	}
 	
+	public int compareTo(Object contact1){
+		Contact temp = (Contact) contact1;
+		return (name.compareToIgnoreCase(temp.getName()));
+	}
+	
+	public String toString(){
+		return name + "-----" + phone;
+	}
 }
