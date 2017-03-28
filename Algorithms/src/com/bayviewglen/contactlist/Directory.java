@@ -12,5 +12,5 @@ public interface Directory {
 	 public Comparable delete(Comparable item);
 	
 	 // Prints all the data to the stream.
-	public void printAll(java.io.PrintWriter p);
+	public void printAll(Node node);
 }

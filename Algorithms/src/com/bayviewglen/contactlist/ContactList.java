@@ -6,7 +6,34 @@ public class ContactList {
 
 	static Scanner scanner = new Scanner(System.in);
 	
+	private static BinarySearchTree contactList;
+	public  static String title; // name of the address book.
+	
+	public ContactList(){
+		contactList = new BinarySearchTree();
+		this.title = title;
+	}
+	
+	public static void add(String name, String phone){
+		Contact cont = new Contact(name, phone);
+		contactList.insert(cont);
+		System.out.println("You have added the contact " + cont.toString() + ".");
+	}
+	public static void addUI(){
+		System.out.println("What is the name of the contact?");
+		scanner.nextLine();
+		String name = scanner.nextLine();
+		System.out.println("What is the phone number of the contact?");
+		String phone = scanner.nextLine();
+		add(name,phone);
+		
+	}
+	
+	
 	public static void main (String[] args){
+		
+		contactList = new BinarySearchTree();
+		
 		
 		boolean done = false;
 		
@@ -20,13 +47,13 @@ public class ContactList {
 			int selection = scanner.nextInt();
 
 			if (selection == 1) {
-				addContact();
+				addUI();
 				
 			} else if (selection == 2) {
 				searchContact();
 
 			} else if (selection == 3) {
-				deleteContact();
+				deleteUI();
 
 			} else if (selection == 4) {
 				displayAll();
@@ -38,36 +65,40 @@ public class ContactList {
 				System.out.println("Enter the corresponding integer.");
 			}
 		}
-	}
-
-	private static void displayAll() {
-		
 	
 	}
 
-	private static void deleteContact() {
+	private static void displayAll() {
+		contactList.printAll(contactList.root);
+	}
+
+	private static void deleteContact(String response) {
 		
+		Contact temp = new Contact(response);
+		contactList.delete(temp);	
+		System.out.println("You have deleted the contact!");
 		
+	}
+	
+	private static void deleteUI(){
+		
+		System.out.println("What is the name of the contact you would like to delete");
+		scanner.nextLine();
+		String response = scanner.nextLine();
+		deleteContact(response);
 	}
 
 	private static void searchContact() {
 		
-		
-	}
-
-	private static void addContact() {
-		
-		System.out.println("Enter the first name \n");
+		System.out.println("What is the name of the person you would like to search for?");
 		scanner.nextLine();
-		String firstName = scanner.nextLine();
-		System.out.println("Enter the last name \n");
-		String lastName = scanner.nextLine();
-		System.out.println("Enter the phone number (no spaces or dashes)");
+		String name = scanner.nextLine();
+		System.out.println("What is the phone number?");
 		String phone = scanner.nextLine();
-		//Making the contact.
 		
-		Contact tempContact = new Contact(firstName, lastName, phone);
+		Contact cont = new Contact(name,phone);
+		
+		contactList.search(cont);
 		
 	}
-	
 }

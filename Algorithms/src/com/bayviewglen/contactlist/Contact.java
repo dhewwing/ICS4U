@@ -2,8 +2,8 @@ package com.bayviewglen.contactlist;
 
 public class Contact implements Comparable {
 
-	private String name;
-	private String phone;
+	String name;
+	String phone;
 	
 	public Contact(String name){
 		this(name, null);
@@ -31,7 +31,7 @@ public class Contact implements Comparable {
 	
 	public int compareTo(Object contact1){
 		Contact temp = (Contact) contact1;
-		return (name.compareToIgnoreCase(temp.getName()));
+		return (name.compareToIgnoreCase(temp.name));
 	}
 	
 	public String toString(){

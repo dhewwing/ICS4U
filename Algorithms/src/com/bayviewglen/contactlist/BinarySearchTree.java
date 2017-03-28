@@ -2,9 +2,11 @@ package com.bayviewglen.contactlist;
 
 import java.io.PrintWriter;
 
+import com.bayviewglen.bst.BinaryNode;
+
 public class BinarySearchTree implements Directory {
 
-	private Node root;
+	public Node root;
 
 	public BinarySearchTree() {
 
@@ -12,56 +14,106 @@ public class BinarySearchTree implements Directory {
 
 	}
 
-	public void insert(Comparable item) {
+	// if no nodes.
+	public void insert(Comparable data) {
 
 		if (root == null) {
-			root = new Node(item);
+			root = new Node(data);
 		} else {
-			insert(root, item);
+			insert(root, data);
 		}
 
 	}
 
-	public void insert(Node node, Comparable item) {
+	// if there is nodes
+	private void insert(Node node, Comparable data) {
 
-		if (node.getElement().compareTo(item) >= 0) {
-			if (node.getRightChild() == null) {
-				Node temp = new Node(item);
-				node.setRightChild(temp);
-			} else {
-				insert(node.getRightChild(), item);
+		if(data.compareTo(node.element) <= 0){
+			if(node.leftChild == null){
+				node.leftChild = new Node(data);
+			}else{
+				insert(node.leftChild, data);
 			}
-		} else {
-			if (node.getLeftChild() == null) {
-				Node temp = new Node(item);
-				node.setLeftChild(temp);
-			} else {
-				insert(node.getLeftChild(), item);
+		}else{
+			if(node.rightChild == null){
+				node.rightChild = new Node(data);
+			}else{
+				insert(node.rightChild, data);
 			}
 		}
-
 	}
 
-	public Object search(Node node, Comparable item) {
-		if (node == null) {
+	public Object search(Comparable data) {
+
+		if (data == null)
 			return null;
-		} else if (node.getElement().compareTo(item) > 0) {
-			search(node.getRightChild(), item);
-		} else if (node.getElement().compareTo(item) < 0) {
-			search(node.getLeftChild(), item);
-		} 
-		return node.getElement();
+		return search(root, data);
+
 	}
-	
-	public Comparable delete(Comparable item){	
+
+	// finds the node, given data.
+	private Object search(Node node, Comparable data) {
+		if (node == null)
+			return null;
+		if (node.element.compareTo(data) == 0){
+			System.out.println("The contact is present!");
+			return node.element;
+		}
+		if (data.compareTo(node.element) < 0)
+			return search(node.leftChild, data);
+		return search(node.rightChild, data);
+	}
+
+	public Comparable delete(Comparable data) {
 
 		Comparable temp;
-		
-		
-		
+
+		if (data == null)
+			return null;
+
+		temp = (Comparable) search(root, data);
+		if (temp != null)
+			root = delete(root, temp);
+		return temp;
+
 	}
 
-	public static void main(String[] args) {
+	// removes node from a tree given data.
+	private Node delete(Node node, Comparable data) {
 
+		if (node == null)
+			return null;
+		if (node.element.compareTo(data) == 0) {
+			if (node.leftChild == null && node.rightChild == null)
+				return null;
+			if (node.leftChild == null)
+				return node.rightChild;
+			if (node.rightChild == null)
+				return node.leftChild;
+			node.element = findMin(node.rightChild);
+			node.rightChild = delete(node.leftChild,data);
+			return node;
+		}else if(data.compareTo(node.element) < 0){
+			node.leftChild = delete(node.leftChild, data);
+		}else{
+			node.rightChild = delete(node.rightChild, data);
+		}
+		return node;
 	}
+
+	private Comparable findMin(Node node) {
+
+		if (node.leftChild == null) 
+			return node.element;
+		return findMin(node.leftChild);
+	}
+
+	public void printAll(Node node) {
+		if (node == null)
+			return;
+		printAll(node.leftChild);
+		System.out.println(node.element);
+		printAll(node.rightChild);
+	}
+
 }
