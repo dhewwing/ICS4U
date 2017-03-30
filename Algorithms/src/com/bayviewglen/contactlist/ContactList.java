@@ -7,18 +7,18 @@ public class ContactList {
 	static Scanner scanner = new Scanner(System.in);
 	
 	private static BinarySearchTree contactList;
-	public  static String title; // name of the address book.
 	
 	public ContactList(){
 		contactList = new BinarySearchTree();
-		this.title = title;
 	}
 	
+	//function for adding
 	public static void add(String name, String phone){
 		Contact cont = new Contact(name, phone);
 		contactList.insert(cont);
-		System.out.println("You have added the contact " + cont.toString() + ".");
+		System.out.println("\nYou have added the contact " + cont.toString() + ".");
 	}
+	//user interface for adding
 	public static void addUI(){
 		System.out.println("What is the name of the contact?");
 		scanner.nextLine();
@@ -38,11 +38,12 @@ public class ContactList {
 		boolean done = false;
 		
 		while (!done) {
-			System.out.println("\n\nWelcome to David Hew-wing's AddressBook!");
+			System.out.println("\nWelcome to David Hew-wing's AddressBook!");
 			System.out.println("Select what you would like to do:");
 			System.out.println("Press 1: Add new contact. " + "\n" + "Press 2: Search for a contact" + "\n"
 					+ "Press 3: Delete a contact" + "\n" + "Press 4: Display all contacts" + "\n" + "Press 5: Exit!");
-			System.out.println("Please enter a integer or it will crash!");
+			System.out.println("Please enter a integer or it will crash!1"
+					+ "");
 			
 			int selection = scanner.nextInt();
 
@@ -68,18 +69,20 @@ public class ContactList {
 	
 	}
 
+	//displays the bst using InOrder traversal
 	private static void displayAll() {
 		contactList.printAll(contactList.root);
 	}
 
+	//delete function
 	private static void deleteContact(String response) {
 		
 		Contact temp = new Contact(response);
 		contactList.delete(temp);	
-		System.out.println("You have deleted the contact!");
 		
 	}
 	
+	//user interface for the delete function
 	private static void deleteUI(){
 		
 		System.out.println("What is the name of the contact you would like to delete");
@@ -87,7 +90,8 @@ public class ContactList {
 		String response = scanner.nextLine();
 		deleteContact(response);
 	}
-
+	
+	//serach contact.
 	private static void searchContact() {
 		
 		System.out.println("What is the name of the person you would like to search for?");

@@ -1,5 +1,6 @@
 package com.bayviewglen.contactlist;
 
+//interface for all the methods in the bst.
 public interface Directory {
 	
 	//Returns the data if the data is present.

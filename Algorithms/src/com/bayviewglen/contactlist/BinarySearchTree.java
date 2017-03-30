@@ -43,6 +43,7 @@ public class BinarySearchTree implements Directory {
 		}
 	}
 
+	//if only given data
 	public Object search(Comparable data) {
 
 		if (data == null)
@@ -56,14 +57,21 @@ public class BinarySearchTree implements Directory {
 		if (node == null)
 			return null;
 		if (node.element.compareTo(data) == 0){
+			System.out.println("");
 			System.out.println("The contact is present!");
 			return node.element;
+		}
+		if(node.leftChild == null && node.rightChild == null){
+			System.out.println("");
+			System.out.println("Contact not in  the list!");
 		}
 		if (data.compareTo(node.element) < 0)
 			return search(node.leftChild, data);
 		return search(node.rightChild, data);
+	
 	}
 
+	//if only given data find the key using search then delete.
 	public Comparable delete(Comparable data) {
 
 		Comparable temp;
@@ -72,8 +80,11 @@ public class BinarySearchTree implements Directory {
 			return null;
 
 		temp = (Comparable) search(root, data);
-		if (temp != null)
+		if (temp != null){
 			root = delete(root, temp);
+		System.out.println("");
+		System.out.println("You have deleted the contact!");
+		}
 		return temp;
 
 	}
@@ -101,6 +112,7 @@ public class BinarySearchTree implements Directory {
 		return node;
 	}
 
+	//for the smalles on the right tree.
 	private Comparable findMin(Node node) {
 
 		if (node.leftChild == null) 
@@ -108,11 +120,14 @@ public class BinarySearchTree implements Directory {
 		return findMin(node.leftChild);
 	}
 
+	//inorder traversal.
 	public void printAll(Node node) {
+		int count = 1;
 		if (node == null)
 			return;
 		printAll(node.leftChild);
-		System.out.println(node.element);
+		System.out.println(count + ": " + node.element);
+		count++;
 		printAll(node.rightChild);
 	}
 

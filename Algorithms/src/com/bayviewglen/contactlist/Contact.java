@@ -1,5 +1,6 @@
 package com.bayviewglen.contactlist;
 
+// contact class.
 public class Contact implements Comparable {
 
 	String name;
